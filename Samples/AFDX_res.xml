@@ -1,277 +1,279 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <results>
+	<delays>
+	</delays>
 	<load>
 		<edge name="L1">
-			<usage type="direct" value="12952500.00" percent="12.9525" />
-			<usage type="reverse" value="43148000.00" percent="43.1480" />
+			<usage type="direct" value="11624500" percent="11.62%" />
+			<usage type="reverse" value="5435000" percent="5.44%" />
 		</edge>
 		<edge name="L2">
-			<usage type="direct" value="12330000.00" percent="12.3300" />
-			<usage type="reverse" value="43148000.00" percent="43.1480" />
+			<usage type="direct" value="11520750" percent="11.52%" />
+			<usage type="reverse" value="5435000" percent="5.44%" />
 		</edge>
 		<edge name="L3">
-			<usage type="direct" value="18604500.00" percent="18.6045" />
-			<usage type="reverse" value="71941500.00" percent="71.9415" />
+			<usage type="direct" value="18272500" percent="18.27%" />
+			<usage type="reverse" value="6016000" percent="6.02%" />
 		</edge>
 		<edge name="L4">
-			<usage type="direct" value="18708250.00" percent="18.7082" />
-			<usage type="reverse" value="71775500.00" percent="71.7755" />
+			<usage type="direct" value="18314000" percent="18.31%" />
+			<usage type="reverse" value="5974500" percent="5.97%" />
 		</edge>
 		<edge name="L5">
-			<usage type="direct" value="32547750.00" percent="32.5478" />
-			<usage type="reverse" value="9351250.00" percent="9.3513" />
+			<usage type="direct" value="5704750" percent="5.70%" />
+			<usage type="reverse" value="8645750" percent="8.65%" />
 		</edge>
 		<edge name="L6">
-			<usage type="direct" value="32547750.00" percent="32.5478" />
-			<usage type="reverse" value="9268250.00" percent="9.2683" />
+			<usage type="direct" value="5663250" percent="5.66%" />
+			<usage type="reverse" value="8604250" percent="8.60%" />
 		</edge>
 		<edge name="L7">
-			<usage type="direct" value="2018500.00" percent="2.0185" />
-			<usage type="reverse" value="5704750.00" percent="5.7047" />
+			<usage type="direct" value="1562000" percent="1.56%" />
+			<usage type="reverse" value="5704750" percent="5.70%" />
 		</edge>
 		<edge name="L8">
-			<usage type="direct" value="1790250.00" percent="1.7902" />
-			<usage type="reverse" value="5746250.00" percent="5.7462" />
+			<usage type="direct" value="1541250" percent="1.54%" />
+			<usage type="reverse" value="5746250" percent="5.75%" />
 		</edge>
 		<edge name="L9">
-			<usage type="direct" value="149856000.00" percent="149.8560" />
-			<usage type="reverse" value="39088000.00" percent="39.0880" />
+			<usage type="direct" value="21408000" percent="21.41%" />
+			<usage type="reverse" value="39088000" percent="39.09%" />
 		</edge>
 		<edge name="L10">
-			<usage type="direct" value="149856000.00" percent="149.8560" />
-			<usage type="reverse" value="39088000.00" percent="39.0880" />
+			<usage type="direct" value="21408000" percent="21.41%" />
+			<usage type="reverse" value="39088000" percent="39.09%" />
 		</edge>
 		<edge name="L20">
-			<usage type="direct" value="498000.00" percent="0.4980" />
-			<usage type="reverse" value="830000.00" percent="0.8300" />
+			<usage type="direct" value="124500" percent="0.12%" />
+			<usage type="reverse" value="207500" percent="0.21%" />
 		</edge>
 		<edge name="L21">
-			<usage type="direct" value="4502000.00" percent="4.5020" />
-			<usage type="reverse" value="9854000.00" percent="9.8540" />
+			<usage type="direct" value="3091000" percent="3.09%" />
+			<usage type="reverse" value="5767000" percent="5.77%" />
 		</edge>
 		<edge name="L22">
-			<usage type="direct" value="1971250.00" percent="1.9713" />
-			<usage type="reverse" value="1618500.00" percent="1.6185" />
+			<usage type="direct" value="705500" percent="0.71%" />
+			<usage type="reverse" value="643250" percent="0.64%" />
 		</edge>
 		<edge name="L23">
-			<usage type="direct" value="456500.00" percent="0.4565" />
-			<usage type="reverse" value="498000.00" percent="0.4980" />
+			<usage type="direct" value="186750" percent="0.19%" />
+			<usage type="reverse" value="166000" percent="0.17%" />
 		</edge>
 		<edge name="L1-1">
-			<usage type="direct" value="1831750.00" percent="1.8317" />
-			<usage type="reverse" value="5580250.00" percent="5.5802" />
+			<usage type="direct" value="1499750" percent="1.50%" />
+			<usage type="reverse" value="5580250" percent="5.58%" />
 		</edge>
 		<edge name="L1-2">
-			<usage type="direct" value="1562000.00" percent="1.5620" />
-			<usage type="reverse" value="5580250.00" percent="5.5802" />
+			<usage type="direct" value="1437500" percent="1.44%" />
+			<usage type="reverse" value="5580250" percent="5.58%" />
 		</edge>
 		<edge name="L1-3">
-			<usage type="direct" value="1811000.00" percent="1.8110" />
-			<usage type="reverse" value="5580250.00" percent="5.5802" />
+			<usage type="direct" value="1499750" percent="1.50%" />
+			<usage type="reverse" value="5580250" percent="5.58%" />
 		</edge>
 		<edge name="L1-4">
-			<usage type="direct" value="1831750.00" percent="1.8317" />
-			<usage type="reverse" value="5559500.00" percent="5.5595" />
+			<usage type="direct" value="1499750" percent="1.50%" />
+			<usage type="reverse" value="5559500" percent="5.56%" />
 		</edge>
 		<edge name="L1-5">
-			<usage type="direct" value="1811000.00" percent="1.8110" />
-			<usage type="reverse" value="5559500.00" percent="5.5595" />
+			<usage type="direct" value="1499750" percent="1.50%" />
+			<usage type="reverse" value="5559500" percent="5.56%" />
 		</edge>
 		<edge name="L1-6">
-			<usage type="direct" value="1748750.00" percent="1.7488" />
-			<usage type="reverse" value="5559500.00" percent="5.5595" />
+			<usage type="direct" value="1499750" percent="1.50%" />
+			<usage type="reverse" value="5559500" percent="5.56%" />
 		</edge>
 		<edge name="L1-7">
-			<usage type="direct" value="1728000.00" percent="1.7280" />
-			<usage type="reverse" value="5580250.00" percent="5.5802" />
+			<usage type="direct" value="1479000" percent="1.48%" />
+			<usage type="reverse" value="5580250" percent="5.58%" />
 		</edge>
 		<edge name="L1-8">
-			<usage type="direct" value="1728000.00" percent="1.7280" />
-			<usage type="reverse" value="5580250.00" percent="5.5802" />
+			<usage type="direct" value="1479000" percent="1.48%" />
+			<usage type="reverse" value="5580250" percent="5.58%" />
 		</edge>
 		<edge name="L2-1">
-			<usage type="direct" value="1811000.00" percent="1.8110" />
-			<usage type="reverse" value="5538750.00" percent="5.5388" />
+			<usage type="direct" value="1499750" percent="1.50%" />
+			<usage type="reverse" value="5538750" percent="5.54%" />
 		</edge>
 		<edge name="L2-2">
-			<usage type="direct" value="1831750.00" percent="1.8317" />
-			<usage type="reverse" value="5518000.00" percent="5.5180" />
+			<usage type="direct" value="1499750" percent="1.50%" />
+			<usage type="reverse" value="5518000" percent="5.52%" />
 		</edge>
 		<edge name="L2-3">
-			<usage type="direct" value="1748750.00" percent="1.7488" />
-			<usage type="reverse" value="5497250.00" percent="5.4973" />
+			<usage type="direct" value="1479000" percent="1.48%" />
+			<usage type="reverse" value="5497250" percent="5.50%" />
 		</edge>
 		<edge name="L2-4">
-			<usage type="direct" value="1748750.00" percent="1.7488" />
-			<usage type="reverse" value="5559500.00" percent="5.5595" />
+			<usage type="direct" value="1479000" percent="1.48%" />
+			<usage type="reverse" value="5559500" percent="5.56%" />
 		</edge>
 		<edge name="L2-5">
-			<usage type="direct" value="1665750.00" percent="1.6657" />
-			<usage type="reverse" value="5559500.00" percent="5.5595" />
+			<usage type="direct" value="1458250" percent="1.46%" />
+			<usage type="reverse" value="5559500" percent="5.56%" />
 		</edge>
 		<edge name="L2-6">
-			<usage type="direct" value="1831750.00" percent="1.8317" />
-			<usage type="reverse" value="5559500.00" percent="5.5595" />
+			<usage type="direct" value="1499750" percent="1.50%" />
+			<usage type="reverse" value="5559500" percent="5.56%" />
 		</edge>
 		<edge name="L2-7">
-			<usage type="direct" value="1582750.00" percent="1.5828" />
-			<usage type="reverse" value="5580250.00" percent="5.5802" />
+			<usage type="direct" value="1437500" percent="1.44%" />
+			<usage type="reverse" value="5580250" percent="5.58%" />
 		</edge>
 		<edge name="L2-8">
-			<usage type="direct" value="1645000.00" percent="1.6450" />
-			<usage type="reverse" value="5538750.00" percent="5.5388" />
+			<usage type="direct" value="1458250" percent="1.46%" />
+			<usage type="reverse" value="5538750" percent="5.54%" />
 		</edge>
 		<edge name="L3-1">
-			<usage type="direct" value="1997750.00" percent="1.9977" />
-			<usage type="reverse" value="8484500.00" percent="8.4845" />
+			<usage type="direct" value="1520500" percent="1.52%" />
+			<usage type="reverse" value="8484500" percent="8.48%" />
 		</edge>
 		<edge name="L3-2">
-			<usage type="direct" value="1645000.00" percent="1.6450" />
-			<usage type="reverse" value="8546750.00" percent="8.5467" />
+			<usage type="direct" value="1437500" percent="1.44%" />
+			<usage type="reverse" value="8546750" percent="8.55%" />
 		</edge>
 		<edge name="L3-3">
-			<usage type="direct" value="1748750.00" percent="1.7488" />
-			<usage type="reverse" value="5891500.00" percent="5.8915" />
+			<usage type="direct" value="1479000" percent="1.48%" />
+			<usage type="reverse" value="5891500" percent="5.89%" />
 		</edge>
 		<edge name="L3-4">
-			<usage type="direct" value="1665750.00" percent="1.6657" />
-			<usage type="reverse" value="5850000.00" percent="5.8500" />
+			<usage type="direct" value="1458250" percent="1.46%" />
+			<usage type="reverse" value="5850000" percent="5.85%" />
 		</edge>
 		<edge name="L3-5">
-			<usage type="direct" value="1665750.00" percent="1.6657" />
-			<usage type="reverse" value="5767000.00" percent="5.7670" />
+			<usage type="direct" value="1458250" percent="1.46%" />
+			<usage type="reverse" value="5767000" percent="5.77%" />
 		</edge>
 		<edge name="L3-6">
-			<usage type="direct" value="1748750.00" percent="1.7488" />
-			<usage type="reverse" value="5725500.00" percent="5.7255" />
+			<usage type="direct" value="1458250" percent="1.46%" />
+			<usage type="reverse" value="5725500" percent="5.73%" />
 		</edge>
 		<edge name="L3-7">
-			<usage type="direct" value="1914750.00" percent="1.9148" />
-			<usage type="reverse" value="5704750.00" percent="5.7047" />
+			<usage type="direct" value="1499750" percent="1.50%" />
+			<usage type="reverse" value="5704750" percent="5.70%" />
 		</edge>
 		<edge name="L3-8">
-			<usage type="direct" value="1479000.00" percent="1.4790" />
-			<usage type="reverse" value="5787750.00" percent="5.7877" />
+			<usage type="direct" value="1416750" percent="1.42%" />
+			<usage type="reverse" value="5787750" percent="5.79%" />
 		</edge>
 		<edge name="L3-9">
-			<usage type="direct" value="1977000.00" percent="1.9770" />
-			<usage type="reverse" value="5767000.00" percent="5.7670" />
+			<usage type="direct" value="1520500" percent="1.52%" />
+			<usage type="reverse" value="5767000" percent="5.77%" />
 		</edge>
 		<edge name="L3-10">
-			<usage type="direct" value="1499750.00" percent="1.4998" />
-			<usage type="reverse" value="5850000.00" percent="5.8500" />
+			<usage type="direct" value="1416750" percent="1.42%" />
+			<usage type="reverse" value="5850000" percent="5.85%" />
 		</edge>
 		<edge name="L3-11">
-			<usage type="direct" value="1707250.00" percent="1.7073" />
-			<usage type="reverse" value="5891500.00" percent="5.8915" />
+			<usage type="direct" value="1458250" percent="1.46%" />
+			<usage type="reverse" value="5891500" percent="5.89%" />
 		</edge>
 		<edge name="L3-12">
-			<usage type="direct" value="1582750.00" percent="1.5828" />
-			<usage type="reverse" value="5829250.00" percent="5.8293" />
+			<usage type="direct" value="1437500" percent="1.44%" />
+			<usage type="reverse" value="5829250" percent="5.83%" />
 		</edge>
 		<edge name="L3-13">
-			<usage type="direct" value="4279500.00" percent="4.2795" />
-			<usage type="reverse" value="8505250.00" percent="8.5053" />
+			<usage type="direct" value="4113500" percent="4.11%" />
+			<usage type="reverse" value="8505250" percent="8.51%" />
 		</edge>
 		<edge name="L4-1">
-			<usage type="direct" value="1582750.00" percent="1.5828" />
-			<usage type="reverse" value="8422250.00" percent="8.4223" />
+			<usage type="direct" value="1437500" percent="1.44%" />
+			<usage type="reverse" value="8422250" percent="8.42%" />
 		</edge>
 		<edge name="L4-2">
-			<usage type="direct" value="1769500.00" percent="1.7695" />
-			<usage type="reverse" value="8422250.00" percent="8.4223" />
+			<usage type="direct" value="1479000" percent="1.48%" />
+			<usage type="reverse" value="8422250" percent="8.42%" />
 		</edge>
 		<edge name="L4-3">
-			<usage type="direct" value="1811000.00" percent="1.8110" />
-			<usage type="reverse" value="5767000.00" percent="5.7670" />
+			<usage type="direct" value="1479000" percent="1.48%" />
+			<usage type="reverse" value="5767000" percent="5.77%" />
 		</edge>
 		<edge name="L4-4">
-			<usage type="direct" value="1790250.00" percent="1.7902" />
-			<usage type="reverse" value="5787750.00" percent="5.7877" />
+			<usage type="direct" value="1479000" percent="1.48%" />
+			<usage type="reverse" value="5787750" percent="5.79%" />
 		</edge>
 		<edge name="L4-5">
-			<usage type="direct" value="1748750.00" percent="1.7488" />
-			<usage type="reverse" value="5829250.00" percent="5.8293" />
+			<usage type="direct" value="1458250" percent="1.46%" />
+			<usage type="reverse" value="5829250" percent="5.83%" />
 		</edge>
 		<edge name="L4-6">
-			<usage type="direct" value="1479000.00" percent="1.4790" />
-			<usage type="reverse" value="5850000.00" percent="5.8500" />
+			<usage type="direct" value="1416750" percent="1.42%" />
+			<usage type="reverse" value="5850000" percent="5.85%" />
 		</edge>
 		<edge name="L4-7">
-			<usage type="direct" value="1562000.00" percent="1.5620" />
-			<usage type="reverse" value="5787750.00" percent="5.7877" />
+			<usage type="direct" value="1437500" percent="1.44%" />
+			<usage type="reverse" value="5787750" percent="5.79%" />
 		</edge>
 		<edge name="L4-8">
-			<usage type="direct" value="1748750.00" percent="1.7488" />
-			<usage type="reverse" value="5767000.00" percent="5.7670" />
+			<usage type="direct" value="1458250" percent="1.46%" />
+			<usage type="reverse" value="5767000" percent="5.77%" />
 		</edge>
 		<edge name="L4-9">
-			<usage type="direct" value="1665750.00" percent="1.6657" />
-			<usage type="reverse" value="5767000.00" percent="5.7670" />
+			<usage type="direct" value="1458250" percent="1.46%" />
+			<usage type="reverse" value="5767000" percent="5.77%" />
 		</edge>
 		<edge name="L4-10">
-			<usage type="direct" value="1603500.00" percent="1.6035" />
-			<usage type="reverse" value="5829250.00" percent="5.8293" />
+			<usage type="direct" value="1437500" percent="1.44%" />
+			<usage type="reverse" value="5829250" percent="5.83%" />
 		</edge>
 		<edge name="L4-11">
-			<usage type="direct" value="1790250.00" percent="1.7902" />
-			<usage type="reverse" value="5787750.00" percent="5.7877" />
+			<usage type="direct" value="1479000" percent="1.48%" />
+			<usage type="reverse" value="5787750" percent="5.79%" />
 		</edge>
 		<edge name="L4-12">
-			<usage type="direct" value="12515000.00" percent="12.5150" />
-			<usage type="reverse" value="5725500.00" percent="5.7255" />
+			<usage type="direct" value="4155000" percent="4.15%" />
+			<usage type="reverse" value="5725500" percent="5.73%" />
 		</edge>
 		<edge name="L4-13">
-			<usage type="direct" value="4362500.00" percent="4.3625" />
-			<usage type="reverse" value="8401500.00" percent="8.4015" />
+			<usage type="direct" value="4134250" percent="4.13%" />
+			<usage type="reverse" value="8401500" percent="8.40%" />
 		</edge>
 		<edge name="L7-1">
-			<usage type="direct" value="1914750.00" percent="1.9148" />
-			<usage type="reverse" value="5559500.00" percent="5.5595" />
+			<usage type="direct" value="1499750" percent="1.50%" />
+			<usage type="reverse" value="5559500" percent="5.56%" />
 		</edge>
 		<edge name="L7-2">
-			<usage type="direct" value="1894000.00" percent="1.8940" />
-			<usage type="reverse" value="5580250.00" percent="5.5802" />
+			<usage type="direct" value="1499750" percent="1.50%" />
+			<usage type="reverse" value="5580250" percent="5.58%" />
 		</edge>
 		<edge name="L7-3">
-			<usage type="direct" value="1665750.00" percent="1.6657" />
-			<usage type="reverse" value="5601000.00" percent="5.6010" />
+			<usage type="direct" value="1458250" percent="1.46%" />
+			<usage type="reverse" value="5601000" percent="5.60%" />
 		</edge>
 		<edge name="L7-4">
-			<usage type="direct" value="1520500.00" percent="1.5205" />
-			<usage type="reverse" value="5663250.00" percent="5.6633" />
+			<usage type="direct" value="1416750" percent="1.42%" />
+			<usage type="reverse" value="5663250" percent="5.66%" />
 		</edge>
 		<edge name="L7-5">
-			<usage type="direct" value="1707250.00" percent="1.7073" />
-			<usage type="reverse" value="5663250.00" percent="5.6633" />
+			<usage type="direct" value="1458250" percent="1.46%" />
+			<usage type="reverse" value="5663250" percent="5.66%" />
 		</edge>
 		<edge name="L7-6">
-			<usage type="direct" value="1707250.00" percent="1.7073" />
-			<usage type="reverse" value="5580250.00" percent="5.5802" />
+			<usage type="direct" value="1458250" percent="1.46%" />
+			<usage type="reverse" value="5580250" percent="5.58%" />
 		</edge>
 		<edge name="L8-1">
-			<usage type="direct" value="1728000.00" percent="1.7280" />
-			<usage type="reverse" value="5704750.00" percent="5.7047" />
+			<usage type="direct" value="1458250" percent="1.46%" />
+			<usage type="reverse" value="5704750" percent="5.70%" />
 		</edge>
 		<edge name="L8-2">
-			<usage type="direct" value="1728000.00" percent="1.7280" />
-			<usage type="reverse" value="5580250.00" percent="5.5802" />
+			<usage type="direct" value="1458250" percent="1.46%" />
+			<usage type="reverse" value="5580250" percent="5.58%" />
 		</edge>
 		<edge name="L8-3">
-			<usage type="direct" value="1790250.00" percent="1.7902" />
-			<usage type="reverse" value="5559500.00" percent="5.5595" />
+			<usage type="direct" value="1479000" percent="1.48%" />
+			<usage type="reverse" value="5559500" percent="5.56%" />
 		</edge>
 		<edge name="L8-4">
-			<usage type="direct" value="1582750.00" percent="1.5828" />
-			<usage type="reverse" value="5518000.00" percent="5.5180" />
+			<usage type="direct" value="1437500" percent="1.44%" />
+			<usage type="reverse" value="5518000" percent="5.52%" />
 		</edge>
 		<edge name="L8-5">
-			<usage type="direct" value="1707250.00" percent="1.7073" />
-			<usage type="reverse" value="5455750.00" percent="5.4558" />
+			<usage type="direct" value="1458250" percent="1.46%" />
+			<usage type="reverse" value="5455750" percent="5.46%" />
 		</edge>
 		<edge name="L8-6">
-			<usage type="direct" value="1562000.00" percent="1.5620" />
-			<usage type="reverse" value="5518000.00" percent="5.5180" />
+			<usage type="direct" value="1437500" percent="1.44%" />
+			<usage type="reverse" value="5518000" percent="5.52%" />
 		</edge>
 	</load>
 </results>

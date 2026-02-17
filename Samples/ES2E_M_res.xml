@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <results>
+	<delays>
+	</delays>
 	<load>
 		<edge name="AFDX Edge 1">
-			<usage type="direct" value="17072000.00" percent="17.0720" />
-			<usage type="reverse" value="0.00" percent="0.0000" />
+			<usage type="direct" value="8536000" percent="8.54%" />
+			<usage type="reverse" value="0" percent="0.00%" />
 		</edge>
 		<edge name="AFDX Edge 2">
-			<usage type="direct" value="8536000.00" percent="8.5360" />
-			<usage type="reverse" value="0.00" percent="0.0000" />
+			<usage type="direct" value="8536000" percent="8.54%" />
+			<usage type="reverse" value="0" percent="0.00%" />
 		</edge>
 		<edge name="AFDX Edge 3">
-			<usage type="direct" value="8536000.00" percent="8.5360" />
-			<usage type="reverse" value="0.00" percent="0.0000" />
+			<usage type="direct" value="8536000" percent="8.54%" />
+			<usage type="reverse" value="0" percent="0.00%" />
 		</edge>
 	</load>
 </results>

@@ -243,12 +243,19 @@ class Network:
     def calculate_loads(self) -> None:
         """Walk every flow/target path and accumulate bandwidth on edges.
 
+        **MULTICAST HANDLING:** In AFDX, a frame is sent ONCE from the source,
+        and switches replicate it. So if multiple targets share a common link,
+        we only count the bandwidth ONCE for that (edge, direction) pair.
+
         For each consecutive pair (A → B) in a target's path, locate the
-        physical Edge and call ``edge.add_load(bw, node_A)`` so the
-        correct direction (direct vs reverse) is updated.
+        physical Edge and call ``edge.add_load(bw, node_A)`` — but only if
+        this (edge, direction) hasn't been visited for this flow yet.
         """
         for flow in self.flows:
             bw = flow.get_bandwidth()
+            
+            # Track which (edge, direction) pairs have been visited for THIS flow
+            visited_links_for_this_flow = set()
 
             for target in flow.targets:
                 path = target.path          # e.g. ['Source', 'Switch', 'Dest1']
@@ -265,7 +272,17 @@ class Network:
 
                     # Determine the direction: node_a is the sender
                     node_a = self.get_node(node_a_name)
-                    edge.add_load(bw, node_a)
+                    
+                    # Create a unique key for this (edge, direction) pair
+                    # Direction is determined by comparing node_a to edge.source
+                    is_direct = (node_a is edge.source)
+                    link_key = (edge, is_direct)
+                    
+                    # Only add load if we haven't visited this link in this direction
+                    # for this flow yet (multicast tree aggregation)
+                    if link_key not in visited_links_for_this_flow:
+                        edge.add_load(bw, node_a)
+                        visited_links_for_this_flow.add(link_key)
 
     def check_stability(self) -> bool:
         """Verify ρ < 1  (load < capacity) on every edge direction.
@@ -299,44 +316,51 @@ class Network:
     # ---- Phase 6: XML output ---- #
 
     def export_results(self, filename: str) -> None:
-        """Generate an XML results file reporting per-edge load & utilisation.
-
-        Format:
-            <results>
-              <load>
-                <edge name="…">
-                  <usage type="direct"  value="…" percent="…" />
-                  <usage type="reverse" value="…" percent="…" />
-                </edge>
-                …
-              </load>
-            </results>
+        """Generate an XML results file.
+        
+        Structure:
+        <results>
+            <delays> ... </delays>  (Empty for now, Step 3 will fill this)
+            <load>
+                <edge> ... </edge>  (Step 2 results)
+            </load>
+        </results>
         """
         with open(filename, "w", encoding="utf-8") as f:
             f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
             f.write('<results>\n')
-            f.write('\t<load>\n')
 
+            # --- Section 1: DELAYS (Required by Schema, empty for Step 2) ---
+            f.write('\t<delays>\n')
+            # You haven't calculated delays yet, so we leave this empty.
+            # Timaeus will just show no delays, which is correct for this phase.
+            f.write('\t</delays>\n')
+
+            # --- Section 2: LOAD (The result of your Stability Check) ---
+            f.write('\t<load>\n')
+            
             for e in self.edges:
-                pct_direct  = (e.load_direct  / e.capacity * 100
-                               if e.capacity > 0 else 0.0)
-                pct_reverse = (e.load_reverse / e.capacity * 100
-                               if e.capacity > 0 else 0.0)
+                # Avoid division by zero
+                if e.capacity > 0:
+                    pct_direct = (e.load_direct / e.capacity) * 100.0
+                    pct_reverse = (e.load_reverse / e.capacity) * 100.0
+                else:
+                    pct_direct = 0.0
+                    pct_reverse = 0.0
 
                 f.write(f'\t\t<edge name="{e.name}">\n')
+                # Direct Direction
                 f.write(f'\t\t\t<usage type="direct" '
-                        f'value="{e.load_direct:.2f}" '
-                        f'percent="{pct_direct:.4f}" />\n')
+                        f'value="{e.load_direct:.0f}" '
+                        f'percent="{pct_direct:.2f}%" />\n')
+                # Reverse Direction
                 f.write(f'\t\t\t<usage type="reverse" '
-                        f'value="{e.load_reverse:.2f}" '
-                        f'percent="{pct_reverse:.4f}" />\n')
+                        f'value="{e.load_reverse:.0f}" '
+                        f'percent="{pct_reverse:.2f}%" />\n')
                 f.write(f'\t\t</edge>\n')
 
             f.write('\t</load>\n')
             f.write('</results>\n')
-
-        print(f"Results written to {filename}")
-
 
 ################################################################@
 #  Phase 4 — XML Parsing
@@ -480,28 +504,38 @@ def parse_network(xml_file: str) -> Network:
 ################################################################@
 #  Phase 7 — Main
 ################################################################@
+################################################################@
+#  Main Execution
+################################################################@
 
-if __name__ == "__main__":
-    # --- resolve input file ---
-    if len(sys.argv) >= 2:
-        xml_file = sys.argv[1]
-    else:
-        xml_file = "./Samples/ES2E_M.xml"
+def file_to_stdout(filename: str):
+    """Reads the generated XML file and prints it to standard output."""
+    if os.path.isfile(filename):
+        with open(filename, "r") as f:
+            print(f.read())
 
-    # --- parse ---
-    network = parse_network(xml_file)
-    network.trace()
+if len(sys.argv) >= 2:
+    xml_file = sys.argv[1]
+else:
+    xml_file = "./Samples/ES2E_M.xml"  # Default for testing
 
-    # --- compute loads & check stability ---
-    print("\n--- Load calculation ---")
-    network.calculate_loads()
-    network.check_stability()
+# 1. Parse
+network = parse_network(xml_file)
 
-    # --- export results ---
-    dot = xml_file.rfind(".")
-    if dot != -1:
-        out_file = xml_file[:dot] + "_res.xml"
-    else:
-        out_file = xml_file + "_res.xml"
+# 2. Calculate
+# (Do NOT print anything to console here, or Timaeus will break)
+network.calculate_loads()
+network.check_stability() 
 
-    network.export_results(out_file)
+# 3. Export
+dot = xml_file.rfind(".")
+if dot != -1:
+    out_file = xml_file[:dot] + "_res.xml"
+else:
+    out_file = xml_file + "_res.xml"
+
+network.export_results(out_file)
+
+# 4. Final Handoff
+# This is the ONLY thing that should appear in the console output
+file_to_stdout(out_file)
