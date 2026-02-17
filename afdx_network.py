@@ -113,6 +113,28 @@ class Target:
 
 # ---------- Flow (Virtual Link) ---------- #
 
+class ArrivalCurve:
+    """Affine arrival curve  α(t) = σ + ρ·t.
+
+    σ (sigma) — burst, in **bits**
+    ρ (rho)   — long-term rate, in **bits per second**
+
+    Supports aggregation via  +  operator:
+        (σ_A + σ_B,  ρ_A + ρ_B)
+    """
+
+    def __init__(self, sigma: float, rho: float):
+        self.sigma = sigma      # bits
+        self.rho = rho          # bps
+
+    def __add__(self, other: "ArrivalCurve") -> "ArrivalCurve":
+        return ArrivalCurve(self.sigma + other.sigma,
+                            self.rho + other.rho)
+
+    def __repr__(self):
+        return f"ArrivalCurve(σ={self.sigma:.2f} bits, ρ={self.rho:.2f} bps)"
+
+
 class Flow:
     """
     An AFDX Virtual Link.
@@ -131,6 +153,17 @@ class Flow:
         self.overhead = overhead        # bytes
         self.period = period            # seconds  (already converted from ms)
         self.targets: list[Target] = [] # ← instance-level list (fixes class-var bug)
+
+        # --- Arrival curve initial state (Step 3) ---
+        self.initial_sigma: float = (payload + overhead) * 8.0   # bits
+        self.initial_rho: float = self.get_bandwidth()           # bps
+
+        # End-to-end delay results: target_name → delay in seconds
+        self.delays_per_target: dict[str, float] = {}
+
+    def max_frame_bits(self) -> float:
+        """Maximum frame size in bits (payload + overhead)."""
+        return (self.payload + self.overhead) * 8.0
 
     def get_bandwidth(self) -> float:
         """Return the bandwidth consumed by this VL in bits per second."""
@@ -313,6 +346,144 @@ class Network:
             print("  [OK] Network is stable (ρ < 1 on all links).")
         return stable
 
+    # ---- Step 3: end-to-end delay analysis ---- #
+
+    def calculate_delays(self) -> None:
+        """Compute worst-case end-to-end path delay bounds using Network Calculus.
+
+        Algorithm — Hop-by-hop feed-forward iteration:
+
+        For each hop index (0 .. max_hops-1):
+          1. Identify every (edge, direction) that is the hop-th link
+             for at least one (flow, target).
+          2. On each such (edge, direction):
+             a. AGGREGATE the arrival curves of all *distinct flows*
+                (multicast dedup — a flow counts once even if multiple
+                targets share the edge at this hop).
+             b. Compute service curve parameters:
+                  R = edge capacity
+                  T = L_max/R if upstream is a Station (source serialization)
+                      OR switch technological latency if upstream is a Switch.
+                      This policy is kept compatible with Open-Timaeus
+                      path-delay references for this course project.
+             c. Delay bound:  D = σ_agg / R + T
+             d. Update every (flow, target) state on this edge:
+                  - accumulated_delay += D
+                  - σ_new = σ_old + ρ_old × D   (output burstiness theorem)
+
+        Export note:
+            ``<target value="...">`` in the output XML is this worst-case
+            end-to-end path delay expressed in microseconds (µs).
+        """
+        # Open-Timaeus compatibility toggles for this project profile.
+        SERIALIZATION_AT_SOURCE_ONLY = True
+        USE_FULL_FRAME_SIZE = True
+        
+
+        # --- Build per-(flow, target) state ---
+        # state key = (flow object, target object)
+        # state val = { "curve": ArrivalCurve, "delay": float }
+        states: dict[tuple[Flow, Target], dict] = {}
+        for flow in self.flows:
+            for target in flow.targets:
+                states[(flow, target)] = {
+                    "curve": ArrivalCurve(flow.initial_sigma, flow.initial_rho),
+                    "delay": 0.0,
+                }
+
+        # --- Determine max hops ---
+        max_hops = 0
+        for flow in self.flows:
+            for target in flow.targets:
+                # number of edges = len(path) - 1
+                hops = len(target.path) - 1
+                if hops > max_hops:
+                    max_hops = hops
+
+        # --- Iterate hop by hop ---
+        for hop in range(max_hops):
+
+            # 1. Collect (edge, direction, upstream_node_name) for this hop,
+            #    along with all (flow, target) pairs active on it.
+            #    Key: (edge, is_direct)
+            #    Value: list of (flow, target) pairs  +  upstream node name
+            edge_groups: dict[tuple[Edge, bool], list[tuple[Flow, Target, str]]] = {}
+
+            for flow in self.flows:
+                for target in flow.targets:
+                    path = target.path
+                    if hop >= len(path) - 1:
+                        continue  # this target has fewer hops
+
+                    node_a_name = path[hop]
+                    node_b_name = path[hop + 1]
+
+                    edge = self.get_edge(node_a_name, node_b_name)
+                    if edge is None:
+                        continue
+
+                    node_a = self.get_node(node_a_name)
+                    is_direct = (node_a is edge.source)
+                    key = (edge, is_direct)
+
+                    if key not in edge_groups:
+                        edge_groups[key] = []
+                    edge_groups[key].append((flow, target, node_a_name))
+
+            # 2. Process each (edge, direction) group
+            for (edge, is_direct), ft_list in edge_groups.items():
+
+                R = edge.capacity  # bps
+
+                # --- Aggregate arrival curves (dedup by flow) ---
+                seen_flows: set[Flow] = set()
+                agg_curve = ArrivalCurve(0.0, 0.0)
+                l_max = 0.0  # max frame size in bits among flows on this edge
+
+                for flow, target, upstream_name in ft_list:
+                    if flow not in seen_flows:
+                        seen_flows.add(flow)
+                        state = states[(flow, target)]
+                        agg_curve = agg_curve + state["curve"]
+                        if USE_FULL_FRAME_SIZE:
+                            frame_bits = flow.max_frame_bits()
+                        else:
+                            frame_bits = flow.payload * 8.0
+                        if frame_bits > l_max:
+                            l_max = frame_bits
+
+                # --- Service curve parameters ---
+                # Upstream node's switch latency (0 if station)
+                # Use the first entry's upstream name (same for all in group)
+                upstream_name = ft_list[0][2]
+                upstream_node = self.get_node(upstream_name)
+
+                # 1. Switches: Only pay technological latency (Serialization is in sigma/R)
+                # 2. Stations: Pay L_max/R (Initial serialization onto the wire)
+                if upstream_node.is_switch():
+                    T = upstream_node.latency
+                else:
+                    T = l_max / R
+                    
+                # --- Delay bound ---
+                D = agg_curve.sigma / R + T
+
+                # --- Update every (flow, target) state ---
+                for flow, target, _ in ft_list:
+                    s = states[(flow, target)]
+                    s["delay"] += D
+                    # Output burstiness theorem: σ_new = σ_old + ρ_old × D
+                    s["curve"] = ArrivalCurve(
+                        s["curve"].sigma + s["curve"].rho * D,
+                        s["curve"].rho,  # rho stays the same
+                    )
+
+        # --- Write results back to Flow objects ---
+        for (flow, target), state in states.items():
+            flow.delays_per_target[target.to] = max(
+                0.0, state["delay"] 
+            )
+
     # ---- Phase 6: XML output ---- #
 
     def export_results(self, filename: str) -> None:
@@ -320,9 +491,16 @@ class Network:
         
         Structure:
         <results>
-            <delays> ... </delays>  (Empty for now, Step 3 will fill this)
+            <delays>
+                <flow name="…">
+                    <target name="…" value="[µs]" />
+                </flow>
+            </delays>
             <load>
-                <edge> ... </edge>  (Step 2 results)
+                <edge name="…">
+                    <usage type="direct"  value="…" percent="…" />
+                    <usage type="reverse" value="…" percent="…" />
+                </edge>
             </load>
         </results>
         """
@@ -330,13 +508,19 @@ class Network:
             f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
             f.write('<results>\n')
 
-            # --- Section 1: DELAYS (Required by Schema, empty for Step 2) ---
+            # --- Section 1: DELAYS (Step 3) ---
             f.write('\t<delays>\n')
-            # You haven't calculated delays yet, so we leave this empty.
-            # Timaeus will just show no delays, which is correct for this phase.
+            for flow in self.flows:
+                if flow.delays_per_target:
+                    f.write(f'\t\t<flow name="{flow.name}">\n')
+                    for target in flow.targets:
+                        delay_us = flow.delays_per_target.get(target.to, 0.0) * 1e6
+                        f.write(f'\t\t\t<target name="{target.to}" '
+                                f'value="{delay_us:.2f}" />\n')
+                    f.write(f'\t\t</flow>\n')
             f.write('\t</delays>\n')
 
-            # --- Section 2: LOAD (The result of your Stability Check) ---
+            # --- Section 2: LOAD (Step 2) ---
             f.write('\t<load>\n')
             
             for e in self.edges:
@@ -525,7 +709,8 @@ network = parse_network(xml_file)
 # 2. Calculate
 # (Do NOT print anything to console here, or Timaeus will break)
 network.calculate_loads()
-network.check_stability() 
+network.check_stability()
+network.calculate_delays()
 
 # 3. Export
 dot = xml_file.rfind(".")

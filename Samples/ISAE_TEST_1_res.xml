@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <results>
 	<delays>
+		<flow name="Flow1">
+			<target name="ES#SW2.0" value="1564.00" />
+			<target name="ES#SW2.1" value="1564.00" />
+			<target name="ES#SW2.2" value="1564.00" />
+			<target name="ES#SW2.3" value="1564.00" />
+			<target name="ES#SW2.4" value="1564.00" />
+		</flow>
+		<flow name="Flow2">
+			<target name="ES#SW2.0" value="1572.00" />
+			<target name="ES#SW2.1" value="1572.00" />
+			<target name="ES#SW2.2" value="1572.00" />
+			<target name="ES#SW2.3" value="1572.00" />
+			<target name="ES#SW2.4" value="1572.00" />
+		</flow>
+		<flow name="Flow3">
+			<target name="ES#SW2.0" value="1580.00" />
+			<target name="ES#SW2.1" value="1580.00" />
+			<target name="ES#SW2.2" value="1580.00" />
+			<target name="ES#SW2.3" value="1580.00" />
+			<target name="ES#SW2.4" value="1580.00" />
+		</flow>
+		<flow name="Flow4">
+			<target name="ES#SW2.0" value="1596.00" />
+			<target name="ES#SW2.1" value="1596.00" />
+			<target name="ES#SW2.2" value="1596.00" />
+			<target name="ES#SW2.3" value="1596.00" />
+			<target name="ES#SW2.4" value="1596.00" />
+		</flow>
+		<flow name="Flow5">
+			<target name="ES#SW2.0" value="1604.00" />
+			<target name="ES#SW2.1" value="1604.00" />
+			<target name="ES#SW2.2" value="1604.00" />
+			<target name="ES#SW2.3" value="1604.00" />
+			<target name="ES#SW2.4" value="1604.00" />
+		</flow>
 	</delays>
 	<load>
 		<edge name="Edge1">
