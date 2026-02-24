@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results>
+	<delays>
+		<flow name="Flow1">
+			<target name="ES#SW2.0" value="3593.91" />
+			<target name="ES#SW2.1" value="3593.91" />
+			<target name="ES#SW2.2" value="3593.91" />
+			<target name="ES#SW2.3" value="3593.91" />
+			<target name="ES#SW2.4" value="3593.91" />
+		</flow>
+		<flow name="Flow2">
+			<target name="ES#SW2.0" value="3601.91" />
+			<target name="ES#SW2.1" value="3601.91" />
+			<target name="ES#SW2.2" value="3601.91" />
+			<target name="ES#SW2.3" value="3601.91" />
+			<target name="ES#SW2.4" value="3601.91" />
+		</flow>
+		<flow name="Flow3">
+			<target name="ES#SW2.0" value="3609.91" />
+			<target name="ES#SW2.1" value="3609.91" />
+			<target name="ES#SW2.2" value="3609.91" />
+			<target name="ES#SW2.3" value="3609.91" />
+			<target name="ES#SW2.4" value="3609.91" />
+		</flow>
+		<flow name="Flow4">
+			<target name="ES#SW2.0" value="3625.91" />
+			<target name="ES#SW2.1" value="3625.91" />
+			<target name="ES#SW2.2" value="3625.91" />
+			<target name="ES#SW2.3" value="3625.91" />
+			<target name="ES#SW2.4" value="3625.91" />
+		</flow>
+		<flow name="Flow5">
+			<target name="ES#SW2.0" value="3633.91" />
+			<target name="ES#SW2.1" value="3633.91" />
+			<target name="ES#SW2.2" value="3633.91" />
+			<target name="ES#SW2.3" value="3633.91" />
+			<target name="ES#SW2.4" value="3633.91" />
+		</flow>
+		<flow name="Flow6">
+			<target name="ES#SW1.1" value="692.47" />
+			<target name="ES#SW1.2" value="691.78" />
+			<target name="ES#SW1.3" value="690.42" />
+			<target name="ES#SW1.4" value="689.74" />
+			<target name="ES#SW2.0" value="3593.91" />
+			<target name="ES#SW2.1" value="3593.91" />
+			<target name="ES#SW2.2" value="3593.91" />
+			<target name="ES#SW2.3" value="3593.91" />
+			<target name="ES#SW2.4" value="3593.91" />
+		</flow>
+		<flow name="Flow7">
+			<target name="ES#SW1.0" value="701.15" />
+			<target name="ES#SW1.2" value="699.78" />
+			<target name="ES#SW1.3" value="698.42" />
+			<target name="ES#SW1.4" value="697.74" />
+			<target name="ES#SW2.0" value="3601.91" />
+			<target name="ES#SW2.1" value="3601.91" />
+			<target name="ES#SW2.2" value="3601.91" />
+			<target name="ES#SW2.3" value="3601.91" />
+			<target name="ES#SW2.4" value="3601.91" />
+		</flow>
+		<flow name="Flow8">
+			<target name="ES#SW1.0" value="709.15" />
+			<target name="ES#SW1.1" value="708.47" />
+			<target name="ES#SW1.3" value="706.42" />
+			<target name="ES#SW1.4" value="705.74" />
+			<target name="ES#SW2.0" value="3609.91" />
+			<target name="ES#SW2.1" value="3609.91" />
+			<target name="ES#SW2.2" value="3609.91" />
+			<target name="ES#SW2.3" value="3609.91" />
+			<target name="ES#SW2.4" value="3609.91" />
+		</flow>
+		<flow name="Flow9">
+			<target name="ES#SW1.0" value="725.15" />
+			<target name="ES#SW1.1" value="724.47" />
+			<target name="ES#SW1.2" value="723.78" />
+			<target name="ES#SW1.4" value="721.74" />
+			<target name="ES#SW2.0" value="3625.91" />
+			<target name="ES#SW2.1" value="3625.91" />
+			<target name="ES#SW2.2" value="3625.91" />
+			<target name="ES#SW2.3" value="3625.91" />
+			<target name="ES#SW2.4" value="3625.91" />
+		</flow>
+		<flow name="Flow10">
+			<target name="ES#SW1.0" value="733.15" />
+			<target name="ES#SW1.1" value="732.47" />
+			<target name="ES#SW1.2" value="731.78" />
+			<target name="ES#SW1.3" value="730.42" />
+			<target name="ES#SW2.0" value="3633.91" />
+			<target name="ES#SW2.1" value="3633.91" />
+			<target name="ES#SW2.2" value="3633.91" />
+			<target name="ES#SW2.3" value="3633.91" />
+			<target name="ES#SW2.4" value="3633.91" />
+		</flow>
+		<flow name="Flow11">
+			<target name="ES#SW1.0" value="604.57" />
+			<target name="ES#SW1.1" value="604.57" />
+			<target name="ES#SW1.2" value="604.57" />
+			<target name="ES#SW1.3" value="604.57" />
+			<target name="ES#SW1.4" value="604.57" />
+			<target name="ES#SW2.1" value="270.65" />
+			<target name="ES#SW2.2" value="370.59" />
+			<target name="ES#SW2.3" value="370.59" />
+			<target name="ES#SW2.4" value="370.59" />
+		</flow>
+		<flow name="Flow12">
+			<target name="ES#SW1.0" value="604.57" />
+			<target name="ES#SW1.1" value="604.57" />
+			<target name="ES#SW1.2" value="604.57" />
+			<target name="ES#SW1.3" value="604.57" />
+			<target name="ES#SW1.4" value="604.57" />
+			<target name="ES#SW2.0" value="270.65" />
+			<target name="ES#SW2.2" value="370.59" />
+			<target name="ES#SW2.3" value="370.59" />
+			<target name="ES#SW2.4" value="370.59" />
+		</flow>
+	</delays>
+	<load>
+		<edge name="Edge1">
+			<usage type="direct" value="17072000" percent="17.07%" />
+			<usage type="reverse" value="51216000" percent="51.22%" />
+		</edge>
+		<edge name="Edge10">
+			<usage type="direct" value="0" percent="0.00%" />
+			<usage type="reverse" value="107232000" percent="107.23%" />
+		</edge>
+		<edge name="Edge11">
+			<usage type="direct" value="90160000" percent="90.16%" />
+			<usage type="reverse" value="17072000" percent="17.07%" />
+		</edge>
+		<edge name="Edge2">
+			<usage type="direct" value="17472000" percent="17.47%" />
+			<usage type="reverse" value="51216000" percent="51.22%" />
+		</edge>
+		<edge name="Edge3">
+			<usage type="direct" value="17872000" percent="17.87%" />
+			<usage type="reverse" value="51216000" percent="51.22%" />
+		</edge>
+		<edge name="Edge4">
+			<usage type="direct" value="18672000" percent="18.67%" />
+			<usage type="reverse" value="51216000" percent="51.22%" />
+		</edge>
+		<edge name="Edge5">
+			<usage type="direct" value="19072000" percent="19.07%" />
+			<usage type="reverse" value="51216000" percent="51.22%" />
+		</edge>
+		<edge name="Edge6">
+			<usage type="direct" value="8536000" percent="8.54%" />
+			<usage type="reverse" value="98696000" percent="98.70%" />
+		</edge>
+		<edge name="Edge7">
+			<usage type="direct" value="8536000" percent="8.54%" />
+			<usage type="reverse" value="98696000" percent="98.70%" />
+		</edge>
+		<edge name="Edge8">
+			<usage type="direct" value="0" percent="0.00%" />
+			<usage type="reverse" value="107232000" percent="107.23%" />
+		</edge>
+		<edge name="Edge9">
+			<usage type="direct" value="0" percent="0.00%" />
+			<usage type="reverse" value="107232000" percent="107.23%" />
+		</edge>
+	</load>
+</results>

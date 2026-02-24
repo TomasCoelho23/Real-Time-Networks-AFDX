@@ -2,8 +2,8 @@
 <results>
 	<delays>
 		<flow name="AFDX Flow 1">
-			<target name="Dest1" value="264.37" />
-			<target name="Dest2" value="264.37" />
+			<target name="Dest1" value="270.65" />
+			<target name="Dest2" value="270.65" />
 		</flow>
 	</delays>
 	<load>
